@@ -1,3 +1,6 @@
+# Dependency-Generator-Cache
+.depend
+
 # Compiled Object files
 *.slo
 *.lo
