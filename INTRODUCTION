@@ -1,0 +1,20 @@
+Kraken-II: A small virtual machine.
+
+Long ago, in the age of state-collegiate education, I had a class with Ted McCracken.
+I knew this class was going to be hard when on the first day, he announced we would
+be designing a computer. Specifically, a small 8-bit RISC machine. Actually, that
+didn't seem hard at all. The hard part was that he wanted it in two weeks. By some
+strange chance one of the best teachers at the school was having his course
+reviewed by the state. This terrible maelstrom yielded my semester of CpE315.
+
+The machine was done piecemeal - each student was given a few parts of the design,
+and the basic design was completed. The next part of the course was programming
+the system.
+
+Some of the rest of CpE315 involved programming the machine we had designed
+piecemeal in class. Dr McCracken graded by stepping through the programs. I would
+often make a simple bit-error when assembling the code. After a few weak assignments,
+I wrote a small virtual-machine and assembler.
+
+Years later, and a few OS-installs too, I've lost the code to the original 'Kraken'
+architecture emulator. So this is a new simple architecture.
