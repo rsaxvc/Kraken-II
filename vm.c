@@ -36,6 +36,10 @@ switch( ins.cond )
 		retn = registers.status.lt || registers.status.gt;
 		break;
 
+	case COND_EXECUTE_ALWAYS:
+		retn = true;
+		break;
+
 	default:
 		retn = false;
 		break;
