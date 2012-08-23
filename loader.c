@@ -15,7 +15,7 @@ if( fd > 0 )
 	size_t cnt;
 	memset( memory, 0x00, sizeof( memory ) );
 	cnt = read( fd, memory, sizeof( memory ) );
-	printf("Read %"PRIuPTR" bytes from %s, zeroing %"PRIuPTR" 16-bit bytes\n", cnt, filename, sizeof( memory ) - cnt );
+	printf("Read %"PRIuPTR" 8-bit bytes from %s, zeroing %"PRIuPTR" 16-bit bytes\n", cnt, filename, sizeof( memory ) - cnt );
 	if( cnt % 2 != 0 )
 		{
 		printf("WARNING:Read odd number of bytes\n");
