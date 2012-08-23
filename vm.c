@@ -108,6 +108,19 @@ if( address_is_mem( pc ) )
 					next_pc = registers.array[ ins.reg1 ];
 					break;
 
+                case INS_UNARY_LOAD_IMM:
+                    if( next_pc < PHYSICAL_MEM )
+                        {
+                        registers.array[ ins.reg1 ] = memory[ next_pc ];
+                        next_pc++;
+                        }
+                    else
+                        {
+                        vm_err_str = "immediate load failed memory read";
+                        success = false;
+                        }
+                    break;
+
 				default:
 					vm_err_str = "Unknown instruction";
 					success = false;
