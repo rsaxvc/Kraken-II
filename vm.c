@@ -7,7 +7,7 @@
 
 const char * vm_err_str = "No Error";
 
-bool condition_match( instruction ins )
+static bool condition_match( instruction ins )
 {
 bool retn = false;
 switch( ins.cond )

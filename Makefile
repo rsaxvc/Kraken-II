@@ -1,6 +1,6 @@
 #debian appears to be making the switch to better multiarch support, but until pkgconfig handles it, hardcode away
 LFLAGS  = 
-CFLAGS  = -g -Wall -Wextra -Wno-unused-parameter
+CFLAGS  = -g -Wall -Wextra -Wno-unused-parameter -Wshadow -Wmissing-prototypes
 SOURCES=`ls *.c`
 BUILDS=kraken
 
