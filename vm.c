@@ -77,9 +77,9 @@ if( address_is_mem( pc ) )
 					break;
 
 				case INS_UNARY_READ:
-					if( address_is_valid( ins.reg2 ) )
+					if( address_is_valid( registers.array[ ins.reg2 ] ) )
 						{
-						registers.array[ ins.reg1 ] = mem_read( ins.reg2 );
+						registers.array[ ins.reg1 ] = mem_read( registers.array[ ins.reg2 ] );
 						}
 						else
 						{
@@ -89,9 +89,9 @@ if( address_is_mem( pc ) )
 					break;
 
 				case INS_UNARY_WRITE:
-					if( address_is_valid( ins.reg2 ) )
+					if( address_is_valid( registers.array[ ins.reg2 ] ) )
 						{
-						mem_write( ins.reg2, ins.reg1 );
+						mem_write( registers.array[ ins.reg2 ], registers.array[ ins.reg1 ] );
 						}
 					else
 						{
@@ -106,7 +106,6 @@ if( address_is_mem( pc ) )
 
 				case INS_UNARY_BRANCH:
 					next_pc = registers.array[ ins.reg1 ];
-					success = true;
 					break;
 
 				default:
