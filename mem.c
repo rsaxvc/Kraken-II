@@ -37,16 +37,16 @@ else
 
 void mem_write( kraken_t address, kraken_t value )
 {
-if( address < PHYSICAL_MEM )
+if( address_is_mem( address ) )
 	{
 	memory[ address ] = value;
 	}
-else if( address > PHYSICAL_MEM && ( address - PHYSICAL_MEM ) < IO_MEM )
+else if( address_is_io( address ) )
 	{
 	write_jmptbl[ address - PHYSICAL_MEM ]( address, value );
 	}
 else
 	{
-	exit(2);
+	exit(3);
 	}
 }
