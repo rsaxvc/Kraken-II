@@ -5,13 +5,21 @@
 
 static kraken_t console_read( kraken_t address )
 {
-printf("fixme\n");
-return 0;
+int ch;
+ch = getchar();
+if( ch == EOF )
+	{
+	return -1;
+	}
+else
+	{
+	return ch;
+	}
 }
 
 static void console_write( kraken_t address, kraken_t value )
 {
-printf("%c",value);
+putchar(value);
 }
 
 static size_t vmname_offset;
