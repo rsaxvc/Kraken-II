@@ -1,4 +1,5 @@
 #include "loader.h"
+#include <inttypes.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -11,10 +12,10 @@ int fd;
 fd = open( filename, O_RDONLY );
 if( fd > 0 )
 	{
-	int cnt;
+	size_t cnt;
 	memset( memory, 0x00, sizeof( memory ) );
 	cnt = read( fd, memory, sizeof( memory ) );
-	printf("Read %i bytes from %s, zeroing %i bytes\n", cnt, filename, sizeof( memory ) - cnt );
+	printf("Read %"PRIuPTR" bytes from %s, zeroing %"PRIuPTR" 16-bit bytes\n", cnt, filename, sizeof( memory ) - cnt );
 	if( cnt % 2 != 0 )
 		{
 		printf("WARNING:Read odd number of bytes\n");
