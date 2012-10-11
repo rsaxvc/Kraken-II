@@ -13,3 +13,5 @@
 *.lai
 *.la
 *.a
+
+kasm.tab.c

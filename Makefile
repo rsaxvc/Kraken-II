@@ -2,14 +2,28 @@
 LFLAGS  = 
 CFLAGS  = -g -Wall -Wextra -Wno-unused-parameter -Wshadow -Wmissing-prototypes
 SOURCES=`ls *.c`
-BUILDS=kraken
+BUILDS=kraken kasm
+KASM_LFLAGS = ${LFLAGS} -ll -lm
+KRKN_LFLAGS = ${LFLAGS}
 
-all: .depend kraken
+all: .depend kasm kraken
+
+kasm.yy.c: kasm.yy
+	flex --outfile=$@ $^
+
+kasm.tab.c: kasm.y
+	bison $^
 
 .depend:
 	fastdep $(SOURCES) > .depend
 
 -include .depend
+
+kasm:\
+	kasm.tab.o\
+	kasm.o\
+	kasm.yy.o
+	gcc -o $@ $^ ${KASM_LFLAGS}
 
 kraken:\
 	mem.o\
@@ -19,7 +33,7 @@ kraken:\
 	loader.o\
 	vm.o\
 	registers.o
-	gcc -o $@ $^ ${LFLAGS}
+	gcc -o $@ $^ ${KRKN_LFLAGS}
 
 clean:
-	rm -f *.o .depend $(BUILDS)
+	rm -f *.o .depend $(BUILDS) kasm.tab.c
