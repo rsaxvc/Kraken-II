@@ -67,6 +67,11 @@ if( address_is_mem( pc ) )
 			success = true;/*assume success*/
 			switch( ins.subopcode )
 				{
+				case INS_UNARY_COMPARE:
+					registers.status.lt = registers.array[ ins.reg1 ] < registers.array[ ins.reg2 ];
+					registers.status.gt = registers.array[ ins.reg1 ] > registers.array[ ins.reg2 ];
+					break;
+
 				case INS_UNARY_ZERO:
 					registers.array[ ins.reg1 ] = 0;
 					break;
