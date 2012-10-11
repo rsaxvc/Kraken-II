@@ -153,6 +153,10 @@ if( address_is_mem( pc ) )
 					registers.array[ ins.reg1 ] = registers.array[ ins.reg2 ] ^ registers.array[ ins.reg3 ];
 					break;
 
+				case INS_MUL:
+					registers.array[ ins.reg1 ] = registers.array[ ins.reg2 ] * registers.array[ ins.reg3 ];
+					break;
+
 				default:
 					vm_err_str = "Unknown instruction";
 					success = false;
